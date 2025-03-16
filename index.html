@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'netflix-red': '#E50914',
+                        'netflix-black': '#141414',
+                        'netflix-gray': '#303030',
+                    },
+                    fontFamily: {
+                        'netflix': ['Netflix Sans', 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Ubuntu', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Netflix Sans', sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://assets.nflxext.com/ffe/siteui/vlv3/c0b69670-89a3-48ca-877f-45ba7a60c16f/2642e08e-4202-490e-8e93-aff04881ee8a/US-en-20240212-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Header -->
+    <header class="hero-section min-h-screen">
+        <nav class="px-12 py-6 flex items-center justify-between">
+            <svg viewBox="0 0 111 30" class="w-32 h-8 text-netflix-red fill-current" focusable="false">
+                <g>
+                    <path d="M105.06233,14.2806261 L110.999156,30 C109.249227,29.7497422 107.500234,29.4366857 105.718437,29.1554972 L102.374168,20.4686475 L98.9371075,28.4375293 C97.2499766,28.1563408 95.5928391,28.061674 93.9057081,27.8432843 L99.9372012,14.0931671 L94.4680851,-5.68434189e-14 L99.5313525,-5.68434189e-14 L102.593495,7.87421502 L105.874965,-5.68434189e-14 L110.999156,-5.68434189e-14 L105.06233,14.2806261 Z M90.4686475,-5.68434189e-14 L85.8749649,-5.68434189e-14 L85.8749649,27.2499766 C87.3746368,27.3437061 88.9371075,27.4055675 90.4686475,27.5930265 L90.4686475,-5.68434189e-14 Z M81.9055207,26.93692 C77.7186241,26.6557316 73.5307901,26.4064111 69.250164,26.3117443 L69.250164,-5.68434189e-14 L73.9366389,-5.68434189e-14 L73.9366389,21.8745899 C76.6248008,21.9373887 79.3120255,22.1557784 81.9055207,22.2804387 L81.9055207,26.93692 Z M64.2496954,10.6561065 L64.2496954,15.3435186 L57.8442216,15.3435186 L57.8442216,25.9996251 L53.2186709,25.9996251 L53.2186709,-5.68434189e-14 L66.3436123,-5.68434189e-14 L66.3436123,4.68741213 L57.8442216,4.68741213 L57.8442216,10.6561065 L64.2496954,10.6561065 Z M45.3435186,4.68741213 L45.3435186,26.2498828 C43.7810479,26.2498828 42.1876465,26.2498828 40.6561065,26.3117443 L40.6561065,4.68741213 L35.8121661,4.68741213 L35.8121661,-5.68434189e-14 L50.2183897,-5.68434189e-14 L50.2183897,4.68741213 L45.3435186,4.68741213 Z M30.749836,15.5928391 C28.687787,15.5928391 26.2498828,15.5928391 24.4999531,15.6875059 L24.4999531,22.6562939 C27.2499766,22.4678976 30,22.2495079 32.7809542,22.1557784 L32.7809542,26.6557316 L19.812541,27.6876933 L19.812541,-5.68434189e-14 L32.7809542,-5.68434189e-14 L32.7809542,4.68741213 L24.4999531,4.68741213 L24.4999531,10.9991564 C26.3126816,10.9991564 29.0936358,10.9054269 30.749836,10.9054269 L30.749836,15.5928391 Z M4.78114163,12.9684132 L4.78114163,29.3429562 C3.09401069,29.5313525 1.59340144,29.7497422 0,30 L0,-5.68434189e-14 L4.4690224,-5.68434189e-14 L10.562377,17.0315868 L10.562377,-5.68434189e-14 L15.2497891,-5.68434189e-14 L15.2497891,28.061674 C13.5935889,28.3437998 11.906458,28.4375293 10.1246602,28.6868498 L4.78114163,12.9684132 Z"></path>
+                </g>
+            </svg>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <select class="bg-transparent border px-4 py-1 rounded">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+                <button class="bg-netflix-red px-4 py-1 rounded font-medium">Sign In</button>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="flex flex-col items-center justify-center text-center px-4 py-20">
+            <h1 class="text-5xl font-bold mb-5">Unlimited movies, TV shows, and more</h1>
+            <h2 class="text-2xl mb-5">Starts at $7.99. Cancel anytime.</h2>
+            <p class="text-xl mb-8">Ready to watch? Enter your email to create or restart your membership.</p>
+            <div class="flex flex-col sm:flex-row gap-2 w-full max-w-xl">
+                <input type="email" placeholder="Email address" class="flex-grow px-4 py-4 rounded bg-black/60 border border-gray-600">
+                <button class="bg-netflix-red px-8 py-4 rounded text-2xl font-medium">
+                    Get Started <i class="fas fa-chevron-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trending Section -->
+    <section class="py-16 px-8">
+        <h2 class="text-3xl font-bold mb-8">Trending Now</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="relative group cursor-pointer">
+                <img src="https://picsum.photos/300/450?random=1" alt="Movie 1" class="rounded transition-transform duration-300 group-hover:scale-105 w-full">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded flex items-center justify-center">
+                    <i class="fas fa-play text-4xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer">
+                <img src="https://picsum.photos/300/450?random=2" alt="Movie 2" class="rounded transition-transform duration-300 group-hover:scale-105 w-full">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded flex items-center justify-center">
+                    <i class="fas fa-play text-4xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer">
+                <img src="https://picsum.photos/300/450?random=3" alt="Movie 3" class="rounded transition-transform duration-300 group-hover:scale-105 w-full">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded flex items-center justify-center">
+                    <i class="fas fa-play text-4xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer">
+                <img src="https://picsum.photos/300/450?random=4" alt="Movie 4" class="rounded transition-transform duration-300 group-hover:scale-105 w-full">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded flex items-center justify-center">
+                    <i class="fas fa-play text-4xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer">
+                <img src="https://picsum.photos/300/450?random=5" alt="Movie 5" class="rounded transition-transform duration-300 group-hover:scale-105 w-full">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded flex items-center justify-center">
+                    <i class="fas fa-play text-4xl"></i>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer">
+                <img src="https://picsum.photos/300/450?random=6" alt="Movie 6" class="rounded transition-transform duration-300 group-hover:scale-105 w-full">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded flex items-center justify-center">
+                    <i class="fas fa-play text-4xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-8 bg-netflix-black">
+        <h2 class="text-3xl font-bold mb-12 text-center">More Reasons to Join</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+                <i class="fas fa-exchange-alt text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Cancel or switch plans anytime</h3>
+                <p class="text-gray-400">Flexible plans for your needs</p>
+            </div>
+            <div class="text-center">
+                <i class="fas fa-child text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">A safe place just for kids</h3>
+                <p class="text-gray-400">Kid-friendly shows and movies</p>
+            </div>
+            <div class="text-center">
+                <i class="fas fa-tv text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Watch on your favorite devices</h3>
+                <p class="text-gray-400">Stream on multiple devices at once</p>
+            </div>
+            <div class="text-center">
+                <i class="fas fa-film text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Stories tailored to your taste</h3>
+                <p class="text-gray-400">Personalized recommendations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-8">
+        <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+        <div class="max-w-3xl mx-auto space-y-4">
+            <div class="bg-netflix-gray">
+                <button class="w-full px-6 py-4 text-left text-xl font-medium flex justify-between items-center">
+                    <span>What is Netflix?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer px-6 py-4 text-gray-300">
+                    Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.
+                </div>
+            </div>
+            <div class="bg-netflix-gray">
+                <button class="w-full px-6 py-4 text-left text-xl font-medium flex justify-between items-center">
+                    <span>How much does Netflix cost?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer px-6 py-4 text-gray-300">
+                    Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee starting at $7.99 with ads.
+                </div>
+            </div>
+            <div class="bg-netflix-gray">
+                <button class="w-full px-6 py-4 text-left text-xl font-medium flex justify-between items-center">
+                    <span>Where can I watch?</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="faq-answer px-6 py-4 text-gray-300">
+                    Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.bg-netflix-gray button').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                const allAnswers = document.querySelectorAll('.faq-answer');
+                const allIcons = document.querySelectorAll('.bg-netflix-gray button i');
+                
+                // Close all other answers
+                allAnswers.forEach(item => {
+                    if (item !== answer && item.style.maxHeight) {
+                        item.style.maxHeight = null;
+                    }
+                });
+                
+                // Reset all icons
+                allIcons.forEach(item => {
+                    if (item !== icon) {
+                        item.classList.remove('fa-minus');
+                        item.classList.add('fa-plus');
+                    }
+                });
+                
+                // Toggle current answer
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+
+        // Add hover effect to buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (!button.classList.contains('bg-netflix-gray')) {
+                button.classList.add('hover:bg-opacity-80', 'transition-colors', 'duration-300');
+            }
+        });
+    </script>
+</body>
+</html>
